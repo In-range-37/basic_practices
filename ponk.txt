@@ -1,0 +1,3 @@
+[Yes] Wake before 6 a.m 
+[_] Gym 
+[No] Bath and refresh 
