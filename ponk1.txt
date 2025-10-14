@@ -1,0 +1,3 @@
+[yes] Woke up at 6
+[yes] Went to Gym
+[yes] Had a bath
