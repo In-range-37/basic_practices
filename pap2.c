@@ -68,6 +68,7 @@ void myGym(FILE * free)
     }
 
     else{
+      fprintf(free, "[%s] Went to Gym\n", confirm );
       printf("Fuck off!!!\n\n");
     }
   }
