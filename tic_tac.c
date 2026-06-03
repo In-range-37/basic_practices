@@ -1,28 +1,81 @@
 #include <stdio.h>
 
-int askX(){
+int layout[3][3] = {{1,2,3},{4,5,6},{7,8,9}};
+int i, j;
 
-    int X;
-    printf("Place X at: ");
-    scanf("%d",&X);
-    return X;
+int askX() {
+    int x;
+
+    do {
+        printf("Place X at (1-9): ");
+        scanf("%d", &x);
+    } while(x < 1 || x > 9);
+
+    return x;
 }
 
-int askO(){
+int askO() {
+    int o;
 
-    int O;
-    printf("Place O at: ");
-    scanf("%d",&O);
-    return O;
+    do {
+        printf("Place O at (1-9): ");
+        scanf("%d", &o);
+    } while(o < 1 || o > 9);
+
+    return o;
 }
 
-int matrix(){
+void matrix(){
 
-    int matrix[3][3] = {{1,2,3},{4,5,6},{7,8,9}};
+    for(i = 0; i < 3; i++){
+        printf("\n");
+        for(j = 0; j < 3; j++){
+            printf("\t%d\t", layout[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+}
+
+void chosen(){
+
+    int x = askX();
     
+    for(i = 0; i < 3; i++){
+        printf("\n");
+        for(j = 0; j < 3; j++){
+            if (layout[i][j] == x){
+                printf("\tX\t");
+            }
+            else{
+                printf("\t%d\t", layout[i][j]);
+            }
+        }
+        printf("\n");
+        return layout;
+    }
+
+    printf("\n");
+
+    int o = askO();
+        for(i = 0; i < 3; i++){
+        printf("\n");
+        for(j = 0; j < 3; j++){
+            if (layout[i][j] == o){
+                printf("\tO\t");
+            }
+            else{
+                printf("\t%d\t", layout[i][j]);
+            }
+        }
+        printf("\n");
+        return layout;
+    }
 }
 
 int main(){
 
     matrix();
+    chosen();
+    return 0;
 }
