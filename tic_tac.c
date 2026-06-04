@@ -45,7 +45,7 @@ void chosen(){
         printf("\n");
         for(j = 0; j < 3; j++){
             if (layout[i][j] == x){
-                printf("\tX\t");
+                layout[i][j] = 10;
             }
             else{
                 printf("\t%d\t", layout[i][j]);
@@ -61,7 +61,7 @@ void chosen(){
         printf("\n");
         for(j = 0; j < 3; j++){
             if (layout[i][j] == o){
-                printf("\tO\t");
+                layout[i][j] = 11;
             }
             else{
                 printf("\t%d\t", layout[i][j]);
@@ -69,11 +69,11 @@ void chosen(){
         }
         printf("\n");
     }
+    return;
 }
 
 int main(){
 
     matrix();
     chosen();
-    return 0;
 }
