@@ -61,7 +61,7 @@ void chosen(){
         printf("\n");
         for(j = 0; j < 3; j++){
             if (layout[i][j] == o){
-                layout[i][j] = 11;
+                layout[i][j] = x;
             }
             else{
                 printf("\t%d\t", layout[i][j]);
