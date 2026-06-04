@@ -52,7 +52,6 @@ void chosen(){
             }
         }
         printf("\n");
-        return layout;
     }
 
     printf("\n");
@@ -69,7 +68,6 @@ void chosen(){
             }
         }
         printf("\n");
-        return layout;
     }
 }
 
