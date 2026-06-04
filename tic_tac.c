@@ -40,12 +40,14 @@ void matrix(){
 void chosen(){
 
     int x = askX();
+    char X,O;
     
     for(i = 0; i < 3; i++){
         printf("\n");
         for(j = 0; j < 3; j++){
             if (layout[i][j] == x){
-                layout[i][j] = 10;
+                layout[i][j] = X;
+                return;
             }
             else{
                 printf("\t%d\t", layout[i][j]);
@@ -61,7 +63,8 @@ void chosen(){
         printf("\n");
         for(j = 0; j < 3; j++){
             if (layout[i][j] == o){
-                layout[i][j] = x;
+                layout[i][j] = O;
+                return;
             }
             else{
                 printf("\t%d\t", layout[i][j]);
