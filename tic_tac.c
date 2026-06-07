@@ -1,82 +1,75 @@
 #include <stdio.h>
 
-int layout[3][3] = {{1,2,3},{4,5,6},{7,8,9}};
-int i, j;
+int matrix[3][3] = {
+    {1,2,3},
+    {4,5,6},
+    {7,8,9}};
 
-int askX() {
-    int x;
+int input(char player){
+    int point;
 
-    do {
-        printf("Place X at (1-9): ");
-        scanf("%d", &x);
-    } while(x < 1 || x > 9);
+    do{
+        printf("Place %c at: ", player);
+        scanf("%d", &point);
+    } while(point < 1 || point > 9);
 
-    return x;
+    return point;
 }
 
-int askO() {
-    int o;
+void layout(){
 
-    do {
-        printf("Place O at (1-9): ");
-        scanf("%d", &o);
-    } while(o < 1 || o > 9);
-
-    return o;
-}
-
-void matrix(){
-
-    for(i = 0; i < 3; i++){
+    for(int i = 0; i < 3; i++){
         printf("\n");
-        for(j = 0; j < 3; j++){
-            printf("\t%d\t", layout[i][j]);
+        for(int j = 0; j < 3; j++){
+            printf("\t%d\t", matrix[i][j]);
         }
         printf("\n");
     }
     printf("\n");
 }
 
-void chosen(){
+int chosen(int point, int trace){
+    int i, j;
+    for (i = 0; i < 3; i++){
+        for (j = 0; j < 3; j++){
 
-    int x = askX();
-    char X,O;
-    
-    for(i = 0; i < 3; i++){
-        printf("\n");
-        for(j = 0; j < 3; j++){
-            if (layout[i][j] == x){
-                layout[i][j] = X;
-                return;
-            }
-            else{
-                printf("\t%d\t", layout[i][j]);
+            if (matrix[i][j] == point){
+                matrix[i][j] = trace;
+                return 1;
             }
         }
-        printf("\n");
     }
+    return 0;
 
-    printf("\n");
-
-    int o = askO();
-        for(i = 0; i < 3; i++){
-        printf("\n");
-        for(j = 0; j < 3; j++){
-            if (layout[i][j] == o){
-                layout[i][j] = O;
-                return;
-            }
-            else{
-                printf("\t%d\t", layout[i][j]);
-            }
-        }
-        printf("\n");
-    }
-    return;
 }
 
 int main(){
 
-    matrix();
-    chosen();
+    int point;
+
+    layout();
+
+    do {
+        point = input('X');
+        if(chosen(point, 10)){
+            layout();
+        }
+        else{
+            printf("Already taken.\n");
+            continue;
+        }
+
+        point = input ('O');
+        if(chosen(point, 11)){
+            layout();
+        }
+        
+        else{
+            printf("Already taken.\n");
+            continue;
+        }
+
+    }
+
+    while(1);
 }
